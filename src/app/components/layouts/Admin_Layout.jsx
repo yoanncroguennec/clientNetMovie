@@ -14,7 +14,9 @@ import { FaShareAlt, FaCalculator, FaBarcode } from "react-icons/fa";
 // import SaveIcon from "@mui/icons-material/Save";
 // import PrintIcon from "@mui/icons-material/Print";
 // import ShareIcon from "@mui/icons-material/Share";
-import { makeStyles } from "@material-ui/core/styles";
+
+// A TROUVER UN REMPLACANT CAR "@material-ui/core" NE FONCTIONNE PAS AVEC "REACT 18"
+// import { makeStyles } from "@material-ui/core/styles";
 import Generate_QR_Code from "../common/admin/widgets/generate_QR_Code/Generate_QR_Code";
 import { useOnHoverOutside } from "../../utils/hooks/movies/UseOnHoverOutside";
 
@@ -28,11 +30,11 @@ const actions = [
 export default function Admin_Layout() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const useStyles = makeStyles({
-    tooltip: {
-      fontSize: 55,
-    },
-  });
+  // const useStyles = makeStyles({
+  //   tooltip: {
+  //     fontSize: 55,
+  //   },
+  // });
 
   const classes = useStyles();
   // GET API All MOVIES
@@ -107,7 +109,7 @@ export default function Admin_Layout() {
                 key={action.name}
                 icon={action.icon}
                 tooltipTitle={action.name}
-                TooltipClasses={classes}
+                // TooltipClasses={classes}
               />
             ))}
           </SpeedDial>
