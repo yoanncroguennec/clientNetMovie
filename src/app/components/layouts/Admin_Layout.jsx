@@ -36,7 +36,7 @@ export default function Admin_Layout() {
   //   },
   // });
 
-  const classes = useStyles();
+  // const classes = useStyles();
   // GET API All MOVIES
   const [allMovies, setAllMovies] = useState([]);
   const [countAllMovies, setAllCountMovies] = useState(0);
