@@ -27,7 +27,7 @@ export const BoxListMovies = styled(Box)(({ theme }) => ({
   display: "flex",
   marginLeft: "2px",
   overflow: "hidden",
-  height: "100%",
+  height: "50%",
 }));
 
 export const BoxBtnAllResults = styled(Box)(({ theme }) => ({
@@ -42,7 +42,7 @@ export const BtnAllResults = styled(Button)(({ theme }) => ({
   border: "5px solid #FFF",
   borderRadius: "40px",
   color: "#FFF",
-  height: "100%",
+  height: "50%",
   padding: "50px 150px",
   width: "150px",
 }));
@@ -52,7 +52,7 @@ export const styleBiChevronRight = {
   backgroundColor: "rgb(22, 22, 22, 0.5)",
   color: "white",
   cursor: "pointer",
-  height: "100%",
+  height: "50%",
   margin: "auto",
   position: "absolute",
   right: 0,

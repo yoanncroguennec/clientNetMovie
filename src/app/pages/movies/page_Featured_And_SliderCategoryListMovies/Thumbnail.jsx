@@ -2,11 +2,21 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 // STYLES
-import { styleLink, styleImg, TypoTitleOfMovie} from "./StylesThumbnail";
+import { styleLink, TypoTitleOfMovie } from "./StylesThumbnail";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 
 export default function Thumbnail({ item }) {
-  // console.log(movie);
+  //////////////////// RESPONSIVE ////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery * theme.breakpoints.down("md");
+
+  const styleImg = {
+    height: "100%",
+    width: "100%",
+    zIndex: 1,
+    position: "absolute",
+  };
 
   /// GET OBTAIN INFOS ON EACH ITEM IN THE CATEGORY SLIDER
   const [movie, setMovie] = useState({});
@@ -25,16 +35,14 @@ export default function Thumbnail({ item }) {
     getMovie();
   }, [item]);
 
-  const { _id, img, name } = movie
+  const { _id, img, name } = movie;
 
   return (
     <Link to={`../movies/${_id}`} style={styleLink}>
       <div style={{ overflow: "" }}>
         <img src={img} alt='movie poster' style={styleImg} />
       </div>
-      <TypoTitleOfMovie variant='h4'>
-        {name}
-      </TypoTitleOfMovie>
+      <TypoTitleOfMovie variant={matches ? "body1" : "h4"}>{name}</TypoTitleOfMovie>
     </Link>
   );
 }

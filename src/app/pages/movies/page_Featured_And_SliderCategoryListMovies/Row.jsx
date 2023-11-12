@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 // COMPONENTS COMMONS
 import Thumbnail from "./Thumbnail";
@@ -43,11 +43,16 @@ export default function Row({ list }) {
   let length = 0;
 
   const numbersContent = `${content.length}`;
+
+  //////////////////// RESPONSIVE ////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery*(theme.breakpoints.down("md"));
+
   return (
-    <RootRow maxWidth='xl' sx={{}}>
+    <RootRow maxWidth='xl'>
       <BoxRow>
         <Link to='' style={styleLink}>
-          <TypoTitleCategory variant='h3'>
+          <TypoTitleCategory variant={matches ? "body2" : "h4"}>
             {title} : {numbersContent} films dans le slide
           </TypoTitleCategory>
         </Link>
@@ -60,7 +65,7 @@ export default function Row({ list }) {
               backgroundColor: "rgb(22, 22, 22, 0.5)",
               color: "white",
               cursor: "pointer",
-              height: "100%",
+              height: "50%",
               left: 0,
               margin: "auto",
               position: "absolute",
@@ -87,7 +92,7 @@ export default function Row({ list }) {
                   >
                     <BoxBtnAllResults>
                       <BtnAllResults variant='outlined'>
-                        <Typography variant='h4'>
+                        <Typography variant={matches ? "body2" : "h4"}>
                           Voir plus de résultats
                         </Typography>
                       </BtnAllResults>

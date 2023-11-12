@@ -1,9 +1,9 @@
-
 body {
   margin: 0;
   padding: 0;
 }
 
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   background: #000;
   width: 0.7em;
@@ -23,17 +23,18 @@ body {
 }
 
 
-
-.globalLinks{
+/* GLOAL LINKS */
+.globalLinks {
   color: #FFF;
   text-decoration: none;
-    display: flex;
-      color: white;
-      gap: 10px;
-      padding: 5px 10px;
-      border-right: 4px solid transparent;
-      transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  display: flex;
+  color: white;
+  gap: 10px;
+  padding: 5px 10px;
+  border-right: 4px solid transparent;
+  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
+
 .globalLinks:hover {
   border-right: 4px solid white;
   background: rgb(45, 51, 89);
@@ -210,42 +211,42 @@ body {
 
 .sss {
   width: 100px;
-    height: 100px;
-    background-color: red;
-    animation: ss 5s linear;
-    position: relative;
+  height: 100px;
+  background-color: red;
+  animation: ss 5s linear;
+  position: relative;
 }
 
 @-webkit-keyframes ss {
   0% {
-      background-color: red;
-      left: 0px;
-      top: 0px;
-    }
-  
-    25% {
-      background-color: yellow;
-      left: 200px;
-      top: 0px;
-    }
-  
-    50% {
-      background-color: blue;
-      left: 200px;
-      top: 200px;
-    }
-  
-    75% {
-      background-color: green;
-      left: 0px;
-      top: 200px;
-    }
-  
-    100% {
-      background-color: red;
-      left: 0px;
-      top: 0px;
-    }
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
 }
 
 :root {
@@ -390,4 +391,4 @@ body {
 
 .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
-} 
+}

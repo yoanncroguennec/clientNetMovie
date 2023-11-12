@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {
-  Box,
-  Typography,
-  styled,
   useMediaQuery,
   useTheme,
+  Box,
+  Drawer,
+  IconButton,
+  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { UserLocationIP_AddressAndLocalTimeDate } from "../../utils";
@@ -30,6 +31,9 @@ export default function Navbar({
 }) {
   //////////////////// RESPONSIVE ////////////////////
   const theme = useTheme();
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,6 +42,13 @@ export default function Navbar({
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
+
+  const dataPanelDrawer = [
+    { link: "", title: "Liste de tous les films" },
+    { link: "", title: "Mes films favoris" },
+    { link: "", title: "Mes films vues" },
+    { link: "", title: "Se connecter" },
+  ];
 
   return (
     <RootNavbar isScrolled={isScrolled} matches={matches}>
@@ -48,6 +59,7 @@ export default function Navbar({
           justifyContent: "center",
           display: "flex",
           flexWrap: "nowrap",
+          textDecoration: "none",
         }}
       >
         <Typo_FirstLetter_Logo matches={matches}>N</Typo_FirstLetter_Logo>
@@ -63,7 +75,7 @@ export default function Navbar({
       <UserLocationIP_AddressAndLocalTimeDate
         id_Of_ConnectedUser={id_Of_ConnectedUser}
       />
-      {!matches && (
+      {!matches ? (
         <>
           <GlobalBtns
             urlBtn='movies/listAllMovies'
@@ -73,12 +85,36 @@ export default function Navbar({
             urlBtn='movies/listFarorites_WithoutMongodb_WithLocalStorage'
             textBtn='Mes favoris'
           />
+          <GlobalBtns urlBtn='admin/dashboard' textBtn='Admin' />
+        </>
+      ) : (
+        <>
+          <IconButton
+            size='large'
+            edge='start'
+            color='inherit'
+            aria-label='logo'
+            onClick={() => setIsDrawerOpen(true)}
+          >
+            <GiHamburgerMenu color='red' size={30} />
+          </IconButton>
+          <Drawer
+            anchor='left'
+            open={isDrawerOpen}
+            onClose={() => setIsDrawerOpen(false)}
+          >
+            <Box p={2} width='250px' textAlign='center' role='presentation'>
+              <Typography sx={{ marginBottom: "25px"}} variant='h4'>MENU</Typography>
+              {dataPanelDrawer.map(({ link, title }) => (
+                <Link style={{ color: "#000", textDecoration: "none" }} to={link}>
+                  <Typography variant='h6'>{title}</Typography>
+                </Link>
+              ))}
+            </Box>
+          </Drawer>
         </>
       )}
 
-      <GlobalBtns urlBtn='admin/dashboard' textBtn='Admin' />
-
-      <GiHamburgerMenu color='red' size={30} />
       {/* <DropdownNavbar
         id_Of_ConnectedUser={id_Of_ConnectedUser}
         token={token}

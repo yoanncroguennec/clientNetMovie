@@ -1,39 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
+import { useMediaQuery, useTheme } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import axios from "axios";
 import NavbarBottomCellular from "./navbar/navbarBottomCellular/NavbarBottomCellular";
 import Navbar from "./navbar/Navbar";
-
-// COMMON UTILS
-// import { Navbar } from "../../../../badMovies/movies/components/layouts";
-// import NavbarResponsive from "../../../../badMovies/movies/components/layouts/navbar/NavbarResponsive";
-
-//////////////////// STYLES ////////////////////
-const RootNavbar = styled(Box)(({ theme }) => ({
-  alignItems: "center",
-  color: "white",
-  display: "flex",
-  flexWrap: "nowrap",
-  height: " 100px",
-  justifyContent: "space-between",
-  position: "fixed",
-  top: "0",
-  width: "100%",
-  zIndex: "999",
-  [theme.breakpoints.down("sm")]: {},
-}));
-
-const styleLink = {
-  color: "#FFF",
-  cursor: "pointer",
-  display: "flex",
-  flexWrap: "nowrap",
-  marginRight: "20px",
-  marginLeft: "55px",
-  textDecoration: "none",
-  textShadow: "1px 1px 1px #000, 3px 3px 5px blue",
-};
 
 export default function AppLayout({
   handleTokenAndId,

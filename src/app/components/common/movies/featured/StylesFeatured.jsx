@@ -1,17 +1,5 @@
 import { Typography, Box, styled } from "@mui/material";
 
-// export const BoxCategory = styled(Box)(({ theme }) => ({
-//   alignItems: "center",
-//   color: "#FFF",
-//   display: "flex",
-//   fontSize: "20px",
-//   fontWeight: "500",
-//   left: "50px",
-//   position: "absolute",
-//   top: "80px",
-// }));
-
-
 export const RootFeatured = styled(Box)(({ img }) => ({
   backgroundImage: `url("${img}")`,
   backgroundPosition: "center center",
@@ -27,6 +15,7 @@ export const BoxFeatured = styled(Box)(({ theme }) => ({
   zIndex: 1,
 }));
 
+/************* DROPDOWN ************/
 export const Dropdown = styled(Box)(({ theme }) => ({
   background: "#000",
   border: "1px solid #FFF",
@@ -58,23 +47,28 @@ export const BoxActiveDropdown = styled(Box)(({ theme }) => ({
 }));
 
 export const DropdownItem = styled(Box)(({ theme }) => ({
-  background: "#000",
+  background: "#020",
   cursor: "pointer",
   padding: "10px",
   transition: "all 0.2s",
+  maxHeight: "50px",
   "&:hover": {
     background: "#333",
   },
 }));
 
+export const linkItemDropdown = {
+  color: "#FFF",
+  textDecoration: "none",
+};
 
-/***************************/
+/************* BOX DESC ************/
 export const BoxBGTitleDescBtnsMovieRandom = styled(Typography)(({ matches }) => ({
   background: "rgba(0, 0, 0, 0.4)",
   borderRadius: "25px",
   marginLeft: `${matches ? "5px" : "45px"}`,
   padding: `${matches ? "25px" : "50px"}`,
-  width: `${matches ? "350px" : "700px"}`,
+  width: `${matches ? "300px" : "700px"}`,
 }));
 
 export const TypoNameMovieRandom = styled(Typography)(({ theme }) => ({
@@ -89,19 +83,3 @@ export const BoxThreeBtns = styled(Box)(({ theme }) => ({
   flexWrap: "nowrap",
   justifyContent: "space-between",
 }));
-
-export const BoxIconBtn = styled(Box)(({ matches }) => ({
-  marginRight: `${matches ? "5px" : "15px"}`,
-}));
-
-export const StylesThreeBtns = {
-  alignItems: "center",
-  border: "2px solid red",
-  borderRadius: "25px",
-  cursor: "pointer",
-  color: "#FFF",
-  display: "flex",
-  flexWrap: "nowrap",
-  padding: "4px 10px",
-  width: "170px",
-};

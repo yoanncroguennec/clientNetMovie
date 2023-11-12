@@ -17,6 +17,7 @@ import {
   DropdownBtn,
   DropdownItem,
   TypoNameMovieRandom,
+  linkItemDropdown,
 } from "./StylesFeatured";
 // ICONS
 import {
@@ -75,6 +76,7 @@ export default function ComponentBoxFeatured({
 
   return (
     <BoxFeatured>
+      {/* DROPDOWN */}
       {type && (
         <Dropdown ref={dropdownRef}>
           <DropdownBtn
@@ -98,6 +100,7 @@ export default function ComponentBoxFeatured({
                         movieCategory: `${textCategory}`,
                       }}
                       onClick={(e) => setSelected(e.target.textContent)}
+                      style={linkItemDropdown}
                     >
                       <DropdownItem>
                         <Typography>{textCategory}</Typography>
@@ -110,6 +113,8 @@ export default function ComponentBoxFeatured({
           )}
         </Dropdown>
       )}
+
+      {/* BOX DESC */}
       <BoxBGTitleDescBtnsMovieRandom matches={matches}>
         <TypoNameMovieRandom variant={matches ? "h6" : "h4"}>
           {name}

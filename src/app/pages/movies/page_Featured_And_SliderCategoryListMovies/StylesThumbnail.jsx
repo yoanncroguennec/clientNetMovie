@@ -11,13 +11,6 @@ export const styleLink = {
   zIndex: 99,
 };
 
-export const styleImg = {
-  height: "100%",
-  width: "100%",
-  zIndex: 1,
-  position: "absolute",
-};
-
 export const TypoTitleOfMovie = styled(Typography)(({ theme }) => ({
   background: "rgba(0, 0, 0, 0.6)",
   zIndex: 3,

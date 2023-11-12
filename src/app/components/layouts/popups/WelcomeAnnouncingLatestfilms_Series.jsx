@@ -41,10 +41,10 @@ export default function WelcomeAnnouncingLatestfilms_Series() {
   const styleImgMovie = {
     border: `${matches ? "3px solid #000" : "5px solid #000"}`,
     borderRadius: "50%",
-    height: `${matches ? "70px" : "130px"}`,
+    height: `${matches ? "50px" : "130px"}`,
     marginLeft: `${matches ? "-30px" : ""}`,
     marginRight: `${matches ? "5px" : "50px"}`,
-    width: `${matches ? "80px" : "230px"}`,
+    width: `${matches ? "60px" : "230px"}`,
   };
 
   // GET API Display Latest Movies In BDD
@@ -79,7 +79,7 @@ export default function WelcomeAnnouncingLatestfilms_Series() {
             color: "red",
             fontWeight: "600",
           }}
-          variant={matches ? "h6" : "h3"}
+          variant={matches ? "h6" : "h4"}
         >
           Derniers films & séries {matches ? "" : "ajoutés sur Net Movie :"}
         </Typography>
@@ -118,13 +118,13 @@ export default function WelcomeAnnouncingLatestfilms_Series() {
             >
               <Typography
                 sx={{ fontWeight: "bold" }}
-                variant={matches ? "h6" : "h5"}
+                variant={matches ? "body1" : "h5"}
               >
                 Derniers Films
               </Typography>
             </div>
           </AccordionSummary>
-          <AccordionDetails style={{ background: "blue", width: "870px" }}>
+          <AccordionDetails style={{ background: "", width: "870px" }}>
             {displayLatestMoviesInBDD
               // sortByAlphabeticalOrder
               // .sort((a, b) => a.name > b.name)
@@ -136,7 +136,7 @@ export default function WelcomeAnnouncingLatestfilms_Series() {
                       // ATTENTION ! Laisser "component='a'", sinon le lien ne marche pas
                       component='a'
                       href={`movies/${_id}`}
-                      style={{ background: "red" }}
+                      style={{ background: "" }}
                     >
                       <img src={img} alt={name} style={styleImgMovie} />
                       <ListItemText primary={name} secondary={actors} />
@@ -183,7 +183,7 @@ export default function WelcomeAnnouncingLatestfilms_Series() {
             >
               <Typography
                 sx={{ fontWeight: "bold" }}
-                variant={matches ? "h6" : "h5"}
+                variant={matches ? "body1" : "h5"}
               >
                 Dernières séries
               </Typography>
