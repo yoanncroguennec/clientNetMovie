@@ -94,9 +94,9 @@ const DrawerNavigationAdmin = ({ isOpen, setIsOpen }) => {
                   )}
                 </AnimatePresence>
 
-                <div className='bars'>
+                {/* <div className='bars'>
                   <FaBars onClick={toggle} />
-                </div>
+                </div> */}
               </div>
               <div className='search'>
                 <div className='search_icon'>

@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 // STYLES
-import { styleLink, TypoTitleOfMovie } from "./StylesThumbnail";
+import { TypoTitleOfMovie, styleImg } from "./StylesThumbnail";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 
 export default function Thumbnail({ item }) {
   //////////////////// RESPONSIVE ////////////////////
   const theme = useTheme();
-  const matches = useMediaQuery * theme.breakpoints.down("md");
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-  const styleImg = {
-    height: "100%",
-    width: "100%",
-    zIndex: 1,
-    position: "absolute",
+  const styleLink = {
+    color: "#FFF",
+    cursor: "pointer",
+    height: `${matches ? "120px" : "350px"}`,
+    minWidth: `${matches ? "250px" : "480px"}`,
+    overflowX: "hidden",
+    position: "relative",
+    textDecoration: "none",
+    zIndex: 99,
   };
 
   /// GET OBTAIN INFOS ON EACH ITEM IN THE CATEGORY SLIDER

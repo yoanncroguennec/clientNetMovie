@@ -15,7 +15,6 @@ import {
 } from "../../../components/utils";
 // STYLES
 import {
-  styles_MotionEffect_Div,
   TypoTitle,
   BoxNoDescription,
   BoxTrailer_MovieLink,
@@ -30,6 +29,16 @@ export default function Movie_By_ID({ token, id_Of_ConnectedUser }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
+  const styles_MotionEffect_Div = {
+    background: "rgba(255, 255, 255, 0.5)",
+    borderRadius: "40px",
+    boxShadow:
+      "rgba(255, 0, 0, 0.5) 0px 10px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px", // box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
+    marginTop: `${matches ? "10px" : "150px"}`,
+    padding: `${matches ? "50px" : "100px"}`,
+    width: `${matches ? "60vw" : "50vw"}`,
+  };
+
   /// STYLES
   //// ATTENTION ! NE PAS SUPPRIMER CE STYLES SINON CA N'AFFICHERA PLUS LE BOX SUR LE BG SLIDER IMGS ////
   const stylesRootMovie_By_ID = {
@@ -38,7 +47,7 @@ export default function Movie_By_ID({ token, id_Of_ConnectedUser }) {
     display: "flex",
     flexDirection: "column",
     position: "absolute",
-    marginTop: "150px",
+    marginTop: `${matches ? "50px" : "150px"}`,
     top: "0",
     width: "100vw",
     zIndex: 999,
@@ -132,17 +141,19 @@ export default function Movie_By_ID({ token, id_Of_ConnectedUser }) {
               : ""}
             )
           </TypoTitle>
-          <Typography variant='h5'>
+          <Typography variant={matches ? "body1" : "h5"}>
             <strong>Réalisateurs :</strong> {realisators}
           </Typography>
-          <Typography variant='h5'>
+          <Typography variant={matches ? "body1" : "h5"}>
             <strong>Acteurs :</strong> {actors}
           </Typography>
           {/* <BoxMovieGenre genre={genre} />  */}
-          {desc === "" && (
+          {desc === "" ? (
             <BoxNoDescription>
-              <Typography variant='h6'> Pas de description</Typography>
+              <Typography variant='h5'> Pas de description</Typography>
             </BoxNoDescription>
+          ) : (
+            <Typography variant={matches ? "body1" : "h5"}>{desc}</Typography>
           )}
 
           <BoxTrailer_MovieLink>

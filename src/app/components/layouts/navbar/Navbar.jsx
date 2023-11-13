@@ -23,6 +23,8 @@ import {
   Typo_EighthLetter_Logo,
 } from "./StylesNavbar";
 import { GlobalBtns } from "..";
+import "../drawer/styles.css";
+
 
 export default function Navbar({
   id_Of_ConnectedUser,
@@ -44,10 +46,13 @@ export default function Navbar({
   };
 
   const dataPanelDrawer = [
-    { link: "", title: "Liste de tous les films" },
-    { link: "", title: "Mes films favoris" },
-    { link: "", title: "Mes films vues" },
-    { link: "", title: "Se connecter" },
+    { link: "movies/listAllMovies", title: "Liste de tous les films" },
+    {
+      link: "movies/listFarorites_WithoutMongodb_WithLocalStorage",
+      title: "Mes films favoris",
+    },
+    // { link: "", title: "Mes films vues" },
+    { link: "auth/login", title: "Se connecter" },
   ];
 
   return (
@@ -103,13 +108,33 @@ export default function Navbar({
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
           >
-            <Box p={2} width='250px' textAlign='center' role='presentation'>
-              <Typography sx={{ marginBottom: "25px"}} variant='h4'>MENU</Typography>
-              {dataPanelDrawer.map(({ link, title }) => (
-                <Link style={{ color: "#000", textDecoration: "none" }} to={link}>
-                  <Typography variant='h6'>{title}</Typography>
-                </Link>
-              ))}
+            <Box
+              className='changeAutoBgDrawer'
+              p={2}
+              width='250px'
+              textAlign='center'
+              role='presentation'
+            >
+              <Box
+                style={{
+                  background: "rgba(0, 0, 0, 0.4)",
+                  margin: "5px",
+                  padding: "5px",
+                  borderRadius: "25px",
+                }}
+              >
+                <Typography sx={{ marginBottom: "25px" }} variant='h4'>
+                  MENU
+                </Typography>
+                {dataPanelDrawer.map(({ link, title }) => (
+                  <Link
+                    style={{ color: "#FFF", textDecoration: "none" }}
+                    to={link}
+                  >
+                    <Typography variant='h6'>{title}</Typography>
+                  </Link>
+                ))}
+              </Box>
             </Box>
           </Drawer>
         </>

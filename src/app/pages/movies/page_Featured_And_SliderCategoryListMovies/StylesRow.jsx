@@ -30,20 +30,20 @@ export const BoxListMovies = styled(Box)(({ theme }) => ({
   height: "50%",
 }));
 
-export const BoxBtnAllResults = styled(Box)(({ theme }) => ({
+export const BoxBtnAllResults = styled(Box)(({ matches }) => ({
   alignItems: "center",
   display: "flex",
   flexWrap: "nowrap",
   justifyContent: "center",
-  width: "400px",
+  width: `${matches ? "200px" : "400px"}`,
 }));
 
-export const BtnAllResults = styled(Button)(({ theme }) => ({
+export const BtnAllResults = styled(Button)(({ matches }) => ({
   border: "5px solid #FFF",
   borderRadius: "40px",
   color: "#FFF",
   height: "50%",
-  padding: "50px 150px",
+  padding: `${matches ? "10px 20px" : "50px 150px"}`,
   width: "150px",
 }));
 

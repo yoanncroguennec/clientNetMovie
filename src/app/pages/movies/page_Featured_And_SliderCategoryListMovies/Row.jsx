@@ -7,18 +7,23 @@ import Thumbnail from "./Thumbnail";
 import {
   RootRow,
   BoxRow,
-  styleLink,
   TypoTitleCategory,
   BoxListMovies,
   BoxBtnAllResults,
   BtnAllResults,
   styleBiChevronRight,
+  styleLink,
 } from "./StylesRow";
 // ICONS
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 //////////////////// EXPORT FUNCTION ////////////////////
 export default function Row({ list }) {
+  //////////////////// RESPONSIVE ////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+
   const { title, content } = list;
   const [hiddenChevronLeft, sethiddenChevronLeft] = useState(false);
 
@@ -44,15 +49,11 @@ export default function Row({ list }) {
 
   const numbersContent = `${content.length}`;
 
-  //////////////////// RESPONSIVE ////////////////////
-  const theme = useTheme();
-  const matches = useMediaQuery*(theme.breakpoints.down("md"));
-
   return (
     <RootRow maxWidth='xl'>
       <BoxRow>
         <Link to='' style={styleLink}>
-          <TypoTitleCategory variant={matches ? "body2" : "h4"}>
+          <TypoTitleCategory variant={matches ? "h6" : "h4"}>
             {title} : {numbersContent} films dans le slide
           </TypoTitleCategory>
         </Link>
@@ -90,8 +91,8 @@ export default function Row({ list }) {
                       textDecoration: "none",
                     }}
                   >
-                    <BoxBtnAllResults>
-                      <BtnAllResults variant='outlined'>
+                    <BoxBtnAllResults matches={matches}>
+                      <BtnAllResults matches={matches} variant='outlined'>
                         <Typography variant={matches ? "body2" : "h4"}>
                           Voir plus de résultats
                         </Typography>
