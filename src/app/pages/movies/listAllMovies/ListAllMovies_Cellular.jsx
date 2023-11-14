@@ -15,11 +15,38 @@ import slide_image_4 from "./img_4.jpg";
 import slide_image_5 from "./img_5.jpg";
 import slide_image_6 from "./img_6.jpg";
 import slide_image_7 from "./img_7.jpg";
+import { Box, Typography } from "@mui/material";
 
-export default function ListAllMovies_Cellular() {
+export default function ListAllMovies_Cellular({ allMovies }) {
+  const dataSwiper = [
+    {
+      src: slide_image_1,
+    },
+    {
+      src: slide_image_2,
+    },
+    {
+      src: slide_image_3,
+    },
+    {
+      src: slide_image_4,
+    },
+    {
+      src: slide_image_5,
+    },
+    {
+      src: slide_image_6,
+    },
+    {
+      src: slide_image_7,
+    },
+  ];
+
   return (
-    <div className='container'>
-      <h1 className='heading'>Flower Gallery</h1>
+    <div style={{ paddingTop: "100px" }}>
+      <Typography variant='h4'>
+        {allMovies.length} films sur cette page
+      </Typography>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -41,7 +68,80 @@ export default function ListAllMovies_Cellular() {
         modules={[EffectCoverflow, Pagination, Navigation]}
         className='swiper_container'
       >
-        <SwiperSlide>
+        {allMovies
+          // sortByAlphabeticalOrder
+          // .sort((a, b) => (a.name > b.name ? 1 : -1))
+          .map(
+            ({
+              _id,
+              name,
+              desc,
+              realisators,
+              actors,
+              favorite,
+              watch,
+              country,
+              genre,
+              img,
+              year,
+              rating,
+              index,
+            }) => (
+              <SwiperSlide>
+                <Box style={{}}>
+                  <div
+                    style={{
+                      position: "absolute",
+                    }}
+                  >
+                    <img
+                      src={img}
+                      alt='slide_image'
+                      style={{
+                        borderRadius: "25px",
+                        position: "absolute",
+                        height: "80vh",
+                        width: "85vw",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      background: "rgba(0, 0, 0, 0.5)",
+                      borderRadius: "25px",
+                      color: "#FFF",
+                      height: "100%",
+                      position: "relative",
+                      width: "100%",
+                      // padding: "10px",
+                    }}
+                  >
+                    <Box sx={{ padding: "40px" }}>
+                      <Typography
+                        sx={{ fontWeight: "bold", textAlign: "center" }}
+                        variant='h6'
+                      >
+                        {name} - {genre}
+                      </Typography>
+                      <Typography variant='body1'>
+                        Réalisateur(s) : {realisators}
+                      </Typography>
+                      <Typography variant='body1'>
+                        Acteur(s) : {actors}
+                      </Typography>
+                      <Typography variant='body1'>{desc}</Typography>
+                    </Box>
+                  </div>
+                </Box>
+              </SwiperSlide>
+            )
+          )}
+        {/* {dataSwiper.map(({ src }) => (
+          <SwiperSlide>
+            <img src={src} alt='slide_image' />
+          </SwiperSlide>
+        ))} */}
+        {/* <SwiperSlide>
           <img src={slide_image_1} alt='slide_image' />
         </SwiperSlide>
         <SwiperSlide>
@@ -61,7 +161,7 @@ export default function ListAllMovies_Cellular() {
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide_image_7} alt='slide_image' />
-        </SwiperSlide>
+        </SwiperSlide> */}
 
         <div className='slider-controler'>
           <div className='swiper-button-prev slider-arrow'>
@@ -137,25 +237,25 @@ export default function ListAllMovies_Cellular() {
 //           modules={[EffectCoverflow, Pagination, Navigation]}
 //           className='swiper_container'
 //         > */}
-//           {allMovies
-//             // sortByAlphabeticalOrder
-//             // .sort((a, b) => (a.name > b.name ? 1 : -1))
-//             .map(
-//               ({
-//                 _id,
-//                 name,
-//                 desc,
-//                 realisators,
-//                 actors,
-//                 favorite,
-//                 watch,
-//                 country,
-//                 genre,
-//                 img,
-//                 year,
-//                 rating,
-//                 index,
-//               }) => (
+// {allMovies
+//   // sortByAlphabeticalOrder
+//   // .sort((a, b) => (a.name > b.name ? 1 : -1))
+//   .map(
+//     ({
+//       _id,
+//       name,
+//       desc,
+//       realisators,
+//       actors,
+//       favorite,
+//       watch,
+//       country,
+//       genre,
+//       img,
+//       year,
+//       rating,
+//       index,
+//     }) => (
 //                 <SwiperSlide
 //                   className='iii'
 //                   style={{

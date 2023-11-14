@@ -94,7 +94,7 @@ export default function ListAllMovies_Desktop({
               return (
                 <Link
                   key={index}
-                  // to={`../movies/${_id}`} style={styleLink}
+                  to={`../movies/${_id}`} style={styleLink}
                 >
                   <RootListMovies>
                     <img

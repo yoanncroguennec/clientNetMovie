@@ -42,7 +42,7 @@ export default function AppLayout({
       <div
         style={{
           background: "#000",
-          color: "#F00",
+          // color: "#F00",
           paddingBottom: `${matches && "50px"}`,
           height: `${matches && "100vh"}`,
           overflow: `${matches && "scroll"}`,
