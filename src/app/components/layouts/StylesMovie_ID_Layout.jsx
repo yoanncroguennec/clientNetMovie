@@ -1,24 +1,14 @@
 import { Box, Typography, styled } from "@mui/material";
 
 export const RootSlide_BG_Mobie = styled(Box)(({ theme }) => ({
-  position: "relative",
-  top: "0",
-  // left: "0",
-  // left: "40px",
-  top: "20px",
-  // zIndex: 9,
-  // background: "red",
-  height: "100vh",
-  overflow: "hidden",
-  width: "100vw",
-  // padding: ""
   "&::before, &::after": {
-    background:
-      "linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
+    background: "red",
+    // background:
+    //   "linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
     content: "''",
-    // height: "100%",
     position: "absolute",
     width: "15%",
+    // height: "100%",
     // zIndex: "2",
   },
   "&::before": {
@@ -30,6 +20,18 @@ export const RootSlide_BG_Mobie = styled(Box)(({ theme }) => ({
     top: "0",
     transform: "rotateZ(180deg)",
   },
+  background: "green",
+  // height: "100vh",
+  overflow: "hidden",
+  position: "relative",
+  top: "0",
+  top: "20px",
+  width: "100vw",
+  // left: "0",
+  // left: "40px",
+  // zIndex: 9,
+  // background: "red",
+  // padding: ""
 }));
 
 export const BoxSlideTrackImgs = styled(Box)(({ theme }) => ({

@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
+import { useMediaQuery, useTheme } from "@mui/material";
+// STYLES
 import {
   RootSlide_BG_Mobie,
-  BoxListMovies,
-  TypoTitle,
-  BoxNoDescription,
-  StylesTrailer,
-  BoxTrailer_MovieLink,
   BoxSlideTrackImgs,
   SlideImgs,
-} from "./StylesMovie";
-import { useMediaQuery, useTheme } from "@mui/material";
+} from "./StylesMovie_ID_Layout";
 
 //////////////////// EXPORT FUNCTION PAGE ////////////////////
 export default function Movie_ID_Layout() {
