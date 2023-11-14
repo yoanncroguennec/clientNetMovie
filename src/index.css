@@ -291,7 +291,9 @@ body {
 }
 
 .swiper_container {
-  height: 80vh;
+  height: 100vh;
+  margin: 50px;
+  /* padding: 250px; */
   padding: 2rem 0;
   position: relative;
 }

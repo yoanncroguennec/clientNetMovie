@@ -15,7 +15,8 @@ import slide_image_4 from "./img_4.jpg";
 import slide_image_5 from "./img_5.jpg";
 import slide_image_6 from "./img_6.jpg";
 import slide_image_7 from "./img_7.jpg";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import {GlobalBtns} from "../../../components/layouts";
 
 export default function ListAllMovies_Cellular({ allMovies }) {
   const dataSwiper = [
@@ -100,7 +101,7 @@ export default function ListAllMovies_Cellular({ allMovies }) {
                       style={{
                         borderRadius: "25px",
                         position: "absolute",
-                        height: "80vh",
+                        height: "100vh",
                         width: "85vw",
                       }}
                     />
@@ -110,9 +111,9 @@ export default function ListAllMovies_Cellular({ allMovies }) {
                       background: "rgba(0, 0, 0, 0.5)",
                       borderRadius: "25px",
                       color: "#FFF",
-                      height: "100%",
+                      height: "100vh",
                       position: "relative",
-                      width: "100%",
+                      width: "85vw",
                       // padding: "10px",
                     }}
                   >
@@ -129,7 +130,14 @@ export default function ListAllMovies_Cellular({ allMovies }) {
                       <Typography variant='body1'>
                         Acteur(s) : {actors}
                       </Typography>
-                      <Typography variant='body1'>{desc}</Typography>
+                      <Typography variant='body1'>
+                        Description : {desc.slice(0, 200)}
+                      </Typography>
+                      <GlobalBtns
+                        urlBtn={`../movies/${_id}`}
+                        textBtn='Voir +'
+                        widthBtn='150px'
+                      />
                     </Box>
                   </div>
                 </Box>

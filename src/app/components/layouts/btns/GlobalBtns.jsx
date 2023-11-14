@@ -10,6 +10,7 @@ export default function GlobalBtns({
   onClickAction,
   iconBtn,
   textBtn,
+  widthBtn,
 }) {
   // RESPONSIVE
   const theme = useTheme();
@@ -27,16 +28,17 @@ export default function GlobalBtns({
         <motion.div
           onClick={onClickAction}
           style={{
-            boxShadow: "20px 20px 40px -6px rgba(0, 0, 0, .2)",
+            alignItems: "center",
             border: "2px solid #F00",
+            borderRadius: "50px",
+            boxShadow: "20px 20px 40px -6px rgba(0, 0, 0, .2)",
+            cursor: "pointer",
             display: "flex",
             flexWrap: "nowrap",
             justifyContent: "center",
             margin: `${matches ? "2px 5px" : "5px 0"}`,
-            alignItems: "center",
             padding: `${matches ? "5px 0" : "5px 25px"}`,
-            borderRadius: "50px",
-            cursor: "pointer",
+            width: `${widthBtn}`,
           }}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
